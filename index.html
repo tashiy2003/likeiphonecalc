@@ -108,6 +108,8 @@ $(function() {
   let operatorDivisionElem = $('.command.is-operator.is-division');
   //　演算子：%
   let operatorRemainElem = $('.command.is-operator.is-remain');
+	//　演算子：+/-
+	let operatorPlusMinusElem = $('.command.is-operator.is-plusMinus');
   
   let equalElem = $('.command.is-equal');
   let acElem = $('.command.is-ac');
@@ -135,6 +137,7 @@ $(function() {
   operatorMultiElem.on('click', saveMultiOperator);
   operatorDivisionElem.on('click', saveDivisionOperator);
   operatorRemainElem.on('click', saveRemainOperator);
+	operatorPlusMinusElem.on('click', savePlusMinusOperator);
   equalElem.on('click', clickEqual);
   acElem.on('click', clickAc);
   
@@ -234,6 +237,13 @@ $(function() {
     flashDisplay();
   }
 
+	function savePlusMinusOperator() 
+    createCalculation();
+    resultNumber = -(resultNumber);
+    log();
+    flashDisplay();
+  }
+
   function log() {
     if (leftNumber === undefined) {
       leftNumberElem.text('undefined');
@@ -272,7 +282,7 @@ $(function() {
   <div class="display">0</div>
   <div class="commands">
     <div class="command is-ac">AC</div>
-    <div class="command is-plusMinus">+/-</div>
+    <div class="command is-operator is-plusMinus">+/-</div>
     <div class="command is-operator is-remain">%</div>
     <div class="command is-operator is-division">/</div>
     <div class="command is-number">7</div>

@@ -166,6 +166,18 @@ $(function() {
     log();
   }
 
+  function plusMinus() {
+    if (leftNumber === undefined) {
+      resultNumber = $('.display').text();;
+    } else if (rightNumber === undefined) {
+      resultNumber = leftNumber;
+    }
+
+    resultNumber = -(resultNumber);;
+    displayElem.text(resultNumber);
+    log();
+  }
+
   function displayNumber() {
     if (resultNumber !== undefined) {
       reset();
@@ -236,10 +248,8 @@ $(function() {
     log();
     flashDisplay();
   }
-
-	function savePlusMinusOperator() 
-    createCalculation();
-    resultNumber = -(resultNumber);
+	function savePlusMinusOperator() {
+    plusMinus();
     log();
     flashDisplay();
   }
